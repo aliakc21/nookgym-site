@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /app/
 
 Sitemap: https://nookgym.com.tr/sitemap.xml
