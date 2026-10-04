@@ -1,7 +1,7 @@
 {
   "name": "NookGym",
   "short_name": "NookGym",
-  "description": "Uzman eğitmeninle birebir antrenman. Ümitköy, Ankara.",
+  "description": "Kişisel antrenör eşliğinde birebir antrenman. Ümitköy, Ankara.",
   "lang": "tr",
   "start_url": "/",
   "scope": "/",
