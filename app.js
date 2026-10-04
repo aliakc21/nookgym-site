@@ -1,6 +1,8 @@
-/* NookGym · küçük yardımcı betik (çerez, analiz, dış istek yok).
-   1) Açılış videosu: yalnız hareket serbestse ve oturumda ilk kez; olmazsa logo görünür.
-   2) Harita: "Haritayı göster"e basılana kadar Google'a hiç istek gitmez. */
+/* NookGym · yardımcı betik (çerez, analiz, dış istek yok).
+   1) Açılış videosu: yalnız <html> .intro sınıfı taşıyorsa çalışır. Video şu an kapalı
+      (index.html head notu); .intro eklenmediği için hiçbir şey indirilmez.
+   2) Harita: "Haritayı açın"a basılana kadar Google'a hiç istek gitmez.
+   3) Mobil/tablet menü: 62rem altında üst bilgideki menü düğmesi. */
 (function () {
   'use strict';
 
@@ -78,12 +80,40 @@
       var cerceve = document.createElement('iframe');
       cerceve.src = dugme.getAttribute('data-harita');
       cerceve.title = 'NookGym konumu, Google Haritalar';
-      cerceve.width = '600';
-      cerceve.height = '450';
+      /* width/height özniteliği verilmez: boyutu yer tutucuyla aynı CSS kuralı (aspect-ratio) belirler, sayfa zıplamaz. */
       cerceve.setAttribute('allowfullscreen', '');
       cerceve.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
       yer.replaceWith(cerceve);
       cerceve.focus();
+    });
+  }
+
+  /* ---------- 3) Mobil/tablet menü ---------- */
+  var menuDugme = document.querySelector('.menu-dugme');
+  var menu = document.getElementById('ust-nav');
+
+  if (menuDugme && menu) {
+    var menuKapat = function () {
+      menuDugme.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('acik');
+    };
+    menuDugme.hidden = false;
+    menuDugme.addEventListener('click', function () {
+      var acilsin = menuDugme.getAttribute('aria-expanded') !== 'true';
+      menuDugme.setAttribute('aria-expanded', acilsin ? 'true' : 'false');
+      menu.classList.toggle('acik', acilsin);
+    });
+    menu.addEventListener('click', function (e) {
+      if (e.target.closest('a')) menuKapat();
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.contains(e.target) && !menuDugme.contains(e.target)) menuKapat();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('acik')) {
+        menuKapat();
+        menuDugme.focus();
+      }
     });
   }
 })();

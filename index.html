@@ -2,12 +2,13 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<script>(function(h){h.classList.add('js');try{var r=matchMedia('(prefers-reduced-motion: reduce)').matches,c=navigator.connection,s=c&&c.saveData;if(!r&&!s&&!sessionStorage.getItem('ng-acilis'))h.classList.add('intro')}catch(e){}})(document.documentElement)</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src https://www.google.com/maps https://www.google.com/maps/; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0D0C0A">
 <meta name="color-scheme" content="dark">
 <link rel="preload" href="/fonts/anton-tr.woff2?v=27bd98d1d6" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=5eeb2d9d27">
+<link rel="stylesheet" href="/styles.css?v=2d10d3eb0c">
 <link rel="icon" href="/assets/favicon.ico?v=61b2eaa9e1" sizes="48x48">
 <link rel="icon" href="/assets/favicon.svg?v=efe89bbaf9" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=21e5dc8f00">
@@ -16,7 +17,7 @@
 <title>NookGym · Ümitköy'de Personal Trainer ve Spor Salonu</title>
 <meta name="description" content="Kişisel antrenör eşliğinde birebir antrenman. Ümitköy'de, Gordion AVM karşısında. Saatlik PT dersleri, PT paketleri ve aylık üyelik.">
 <link rel="canonical" href="https://nookgym.com.tr/">
-<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/logo-583x627.webp?v=d474e4c88e 583w, /assets/logo-1166x1254.webp?v=88137894a3 1166w" imagesizes="(min-width: 900px) 354px, 64vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/webp" imagesrcset="/assets/logo-583x627.webp?v=d474e4c88e 583w, /assets/logo-1166x1254.webp?v=88137894a3 1166w" imagesizes="(min-width: 900px) 296px, 54vw" fetchpriority="high">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
 <meta property="og:site_name" content="NookGym">
@@ -27,7 +28,7 @@
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="NookGym logosu ve “Güçlü. Sağlıklı. Birebir.” yazısı">
+<meta property="og:image:alt" content="NookGym logosu ve “Güçlü · Sağlıklı · Birebir” yazısı">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="NookGym · Güçlü. Sağlıklı. Birebir.">
 <meta name="twitter:description" content="Kişisel antrenör eşliğinde birebir antrenman. Ümitköy · Gordion AVM karşısı.">
@@ -66,17 +67,17 @@
   ]
 }
 </script>
-<script src="/app.js?v=754605abb1" defer></script>
+<script src="/app.js?v=bacf03de9b" defer></script>
 </head>
 <body>
-<a class="atla" href="#icerik">İçeriğe geç</a>
+<a class="atla" href="#icerik">İçeriğe geçin</a>
 <header class="ust">
   <div class="kap ust-ic">
     <a class="marka" href="/" aria-label="NookGym, ana sayfa">
       <img src="/assets/favicon.svg?v=efe89bbaf9" width="32" height="32" alt="">
       <span aria-hidden="true">NookGym</span>
     </a>
-    <nav class="ust-nav" aria-label="Bölümler">
+    <nav class="ust-nav" id="ust-nav" aria-label="Bölümler">
       <ul>
         <li><a href="/#pt">Birebir PT</a></li>
         <li><a href="/#ilerleme">İlerleme</a></li>
@@ -84,7 +85,10 @@
         <li><a href="/#iletisim">İletişim</a></li>
       </ul>
     </nav>
-    <a class="btn btn-ana btn-kucuk" href="https://ig.me/m/nookgym_">Bilgi al</a>
+    <button class="menu-dugme" type="button" aria-label="Menü" aria-expanded="false" aria-controls="ust-nav" hidden>
+      <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <a class="btn btn-ana btn-kucuk" href="https://ig.me/m/nookgym_">Bilgi alın<span class="gizli"> (Instagram mesajı)</span></a>
   </div>
 </header>
 
@@ -95,7 +99,7 @@
     <div class="kap giris-ic">
       <div class="isaret">
         <picture>
-          <source type="image/webp" srcset="/assets/logo-583x627.webp?v=d474e4c88e 583w, /assets/logo-1166x1254.webp?v=88137894a3 1166w" sizes="(min-width: 900px) 354px, 64vw">
+          <source type="image/webp" srcset="/assets/logo-583x627.webp?v=d474e4c88e 583w, /assets/logo-1166x1254.webp?v=88137894a3 1166w" sizes="(min-width: 900px) 296px, 54vw">
           <img class="isaret-logo" src="/assets/logo-583x627.png?v=95284281fe" width="583" height="627" alt="NookGym logosu" fetchpriority="high">
         </picture>
         <video class="isaret-video" width="720" height="720" muted playsinline preload="none" aria-hidden="true" tabindex="-1"
@@ -105,7 +109,7 @@
       <h1 id="giris-baslik"><span class="gizli">NookGym: </span>Güçlü. Sağlıklı. Birebir.</h1>
       <p class="giris-metin">Kişisel antrenör eşliğinde birebir antrenman ve size özel program.</p>
       <div class="dugmeler">
-        <a class="btn btn-ana" href="https://ig.me/m/nookgym_">Bilgi ve randevu</a>
+        <a class="btn btn-ana" href="https://ig.me/m/nookgym_">Bilgi ve randevu<span class="gizli"> (Instagram mesajı)</span></a>
         <a class="btn btn-ikincil" href="#konum">
           <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           Konum
@@ -117,35 +121,35 @@
   <section id="pt" class="bolum" aria-labelledby="pt-baslik">
     <div class="kap bolum-ic">
       <div class="bolum-bas">
-        <p class="kunye"><span>01</span> Birebir Antrenman</p>
+        <p class="kunye" aria-hidden="true"><span>01</span> Birebir Antrenman</p>
         <h2 id="pt-baslik">Birebir antrenman</h2>
         <p class="bolum-giris">Saatlik PT dersleri, PT paketleri ve aylık üyelik seçenekleri.</p>
       </div>
-      <ol class="maddeler">
+      <ul class="maddeler" role="list">
         <li>
           <h3>Kişisel program</h3>
-          <p>Hedefinize, seviyenize ve programınıza göre hazırlanır.</p>
+          <p>Hedefinize, seviyenize ve zaman planınıza göre hazırlanır.</p>
         </li>
         <li>
           <h3>Kişisel antrenör eşliğinde</h3>
-          <p>Her seansta teknik, form ve yüklenme kontrolü.</p>
+          <p>Her derste teknik, duruş ve yük kontrolü.</p>
         </li>
         <li>
           <h3>Ders ve paket seçenekleri</h3>
-          <p>Tek seans ya da düzenli PT paketleri.</p>
+          <p>Tek ders ya da düzenli PT paketleri.</p>
         </li>
-      </ol>
+      </ul>
     </div>
   </section>
 
   <section id="ilerleme" class="bolum" aria-labelledby="ilerleme-baslik">
     <div class="kap">
       <div class="bolum-bas bolum-bas-genis">
-        <p class="kunye"><span>02</span> İlerleme Takibi</p>
+        <p class="kunye" aria-hidden="true"><span>02</span> İlerleme Takibi</p>
         <h2 id="ilerleme-baslik">İlerleme takibi</h2>
         <p class="bolum-giris">Gelişiminiz düzenli ölçüm ve kayıtlarla izlenir.</p>
       </div>
-      <ul class="kartlar">
+      <ul class="kartlar" role="list">
         <li class="kart">
           <svg class="kart-ikon" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="5" y="16" width="38" height="16" rx="2"/><path d="M12 16v6M19 16v9M26 16v6M33 16v9M40 16v6"/></svg>
           <h3>Ölçüm</h3>
@@ -172,28 +176,27 @@
   <section id="konum" class="bolum" aria-labelledby="konum-baslik">
     <div class="kap bolum-ic">
       <div class="konum-metin">
-        <p class="kunye"><span>03</span> Konum</p>
+        <p class="kunye" aria-hidden="true"><span>03</span> Konum</p>
         <h2 id="konum-baslik">Konum</h2>
         <p class="konum-buyuk">Gordion AVM karşısı</p>
         <p class="konum-alt">Nokta Ankara · alt kat</p>
-        <address>Nokta Ankara, Ankaralılar Cad. No:1, Ümit Mah., 06810 Çankaya / Ankara</address>
+        <address>Nokta Ankara, Ankaralılar&nbsp;Cad. No:1, Ümit&nbsp;Mah., 06810 Çankaya&nbsp;/&nbsp;Ankara</address>
         <div class="dugmeler">
           <a class="btn btn-ana" href="https://www.google.com/maps/dir/?api=1&amp;destination=39.901416%2C32.693052">
-            Yol tarifi
+            Yol tarifi <span aria-hidden="true">·</span> Google
             <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn-ikincil" href="https://maps.apple.com/?q=NookGym&amp;ll=39.901416,32.693052&amp;z=18">Apple Haritalar</a>
+          <a class="btn btn-ikincil" href="https://maps.apple.com/?q=NookGym&amp;ll=39.901416,32.693052&amp;z=18">Yol tarifi <span aria-hidden="true">·</span> Apple</a>
         </div>
       </div>
       <div class="harita">
         <div class="harita-yer">
           <svg class="harita-pin" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           <p class="harita-baslik">NookGym · Nokta Ankara</p>
-          <p class="harita-aciklama">Harita, siz istediğinizde yüklenir.</p>
-          <button class="btn btn-ikincil" type="button" data-harita="https://www.google.com/maps?q=39.901416,32.693052&amp;z=17&amp;output=embed" hidden>Haritayı göster</button>
-          <noscript><a class="btn btn-ikincil" href="https://www.google.com/maps/search/?api=1&amp;query=39.901416%2C32.693052">Google Haritalar'da aç</a></noscript>
+          <button class="btn btn-ikincil" type="button" data-harita="https://www.google.com/maps?q=39.901416,32.693052&amp;z=17&amp;output=embed" hidden>Haritayı açın</button>
+          <noscript><a class="btn btn-ikincil" href="https://www.google.com/maps/search/?api=1&amp;query=39.901416%2C32.693052">Google Haritalar'da açın</a></noscript>
         </div>
-        <p class="harita-not">Harita Google tarafından sunulur. Gösterdiğinizde tarayıcınız Google'a bağlanır.</p>
+        <p class="harita-not">Harita Google tarafından sunulur. Açtığınızda tarayıcınız Google'a bağlanır.</p>
       </div>
     </div>
   </section>
@@ -202,7 +205,7 @@
     <div class="kap">
       <div class="iletisim">
         <div class="iletisim-bas">
-          <p class="kunye"><span>04</span> İletişim</p>
+          <p class="kunye" aria-hidden="true"><span>04</span> İletişim</p>
           <h2 id="iletisim-baslik">İletişim</h2>
           <p class="bolum-giris">Üyelik, PT dersleri ve paket seçenekleri hakkında bilgi ve randevu için bize ulaşın.</p>
 
@@ -219,8 +222,7 @@
             <span class="kanal-ad">Instagram</span>
             <a href="https://www.instagram.com/nookgym_/">@nookgym_</a>
           </li>
-          <!-- E-POSTA: info@nookgym.com.tr kurulunca bu satırı geri aç (2026-10-04)
-          <li><span class="kanal-ad">E-posta</span> info@nookgym.com.tr</li> -->
+
 
         </ul>
       </div>
@@ -240,9 +242,9 @@
     </div>
     <nav class="alt-nav" aria-label="Alt bağlantılar">
       <ul>
-        <!-- KVKK: şirket unvanı gelince geri aç: <li><a href="/kvkk">KVKK Aydınlatma Metni</a></li> -->
+
         <li><a href="https://www.instagram.com/nookgym_/">Instagram</a></li>
-        <!-- E-POSTA: kurulunca geri aç -->
+
       </ul>
     </nav>
     <div class="alt-yasal">

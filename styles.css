@@ -187,7 +187,7 @@ main:focus { outline: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.625rem;
   min-height: var(--ust-yukseklik);
 }
 .marka {
@@ -206,7 +206,57 @@ main:focus { outline: none; }
 .marka img { width: 2rem; height: 2rem; border-radius: 0.5rem; }
 
 .ust-nav { display: none; }
+
+/* Mobil/tablet menü: düğme app.js ile görünür (JS yoksa gizli kalır). */
+.menu-dugme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid var(--cizgi-2);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--acik);
+  cursor: pointer;
+}
+.menu-dugme[hidden] { display: none; }
+.menu-dugme .ikon { width: 1.375rem; height: 1.375rem; }
+.menu-dugme[aria-expanded="true"] { border-color: var(--amber); }
+@media (max-width: 61.99rem) {
+  .ust-nav.acik {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--zemin);
+    border-bottom: 1px solid var(--cizgi-2);
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.5);
+  }
+  .ust-nav ul {
+    max-width: calc(var(--genislik) + 2 * var(--kenar));
+    margin-inline: auto;
+    padding: 0.25rem var(--kenar) 0.75rem;
+    list-style: none;
+  }
+  .ust-nav a {
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+    border-top: 1px solid var(--cizgi);
+    color: var(--metin);
+    font-size: 1.0625rem;
+    text-decoration: none;
+  }
+  .ust-nav li:first-child a { border-top: 0; }
+  .ust-nav a:hover { color: var(--amber); }
+}
 @media (min-width: 62rem) {
+  .ust-ic { gap: 1rem; }
+  .menu-dugme { display: none !important; }
   .ust-nav { display: block; margin-inline: auto; }
   .ust-nav ul { display: flex; gap: 0.25rem; list-style: none; }
   .ust-nav a {
@@ -228,7 +278,7 @@ main:focus { outline: none; }
   display: grid;
   align-items: center;
   min-height: min(calc(100svh - var(--ust-yukseklik)), 58rem);
-  padding-block: 1.5rem 3.5rem;
+  padding-block: 1rem 3.5rem;
   text-align: center;
   background:
     radial-gradient(70% 55% at 50% 38%, rgba(202, 159, 108, 0.07), transparent 70%),
@@ -244,7 +294,7 @@ main:focus { outline: none; }
 
 .isaret {
   position: relative;
-  width: min(76vw, 44svh, 26.25rem);
+  width: min(64vw, 32svh, 22rem);
   aspect-ratio: 1;
 }
 .isaret picture { display: contents; }
@@ -268,8 +318,8 @@ main:focus { outline: none; }
   mask-image: radial-gradient(closest-side, #000 74%, transparent);
 }
 
-/* Açılış: NOOK düşer, zemin çatlar, bar yaya döner. Yalnız hareket serbestse
-   (head'deki küçük betik .intro ekler). JS yüklenmezse logo 3,2 sn sonra kendiliğinden görünür. */
+/* Açılış: NOOK düşer, zemin çatlar, bar yaya döner. Yalnız <html> .intro taşıyorsa çalışır;
+   video şu an kapalı, .intro eklenmiyor (index.html head notu). */
 .intro .isaret-video { display: block; }
 .intro .isaret-logo { opacity: 0; animation: logo-goster 0.6s ease 3.2s forwards; }
 .intro.oynuyor .isaret-video { opacity: 1; }
@@ -287,11 +337,12 @@ main:focus { outline: none; }
   text-transform: uppercase;
 }
 .giris h1 {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-family: var(--baslik);
   font-weight: 400;
   font-size: clamp(2.5rem, 11.5vw, 5.75rem);
-  line-height: 1.04;
+  /* Anton + Türkçe büyük harf (Ç kuyruğu, Ğ/Ü/İ işaretleri) satırlar arası en az ~1.2 ister. */
+  line-height: 1.2;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   max-width: 12ch;
@@ -311,6 +362,18 @@ main:focus { outline: none; }
 .giris .dugmeler {
   justify-content: center;
   margin-top: 1.75rem;
+}
+@media (min-width: 62rem) {
+  .giris { padding-top: 1.5rem; }
+  .giris h1 { max-width: none; }
+  .giris-metin { margin-top: 1rem; }
+}
+/* Kısa telefon ekranları (ör. iPhone SE, Safari araç çubukları açıkken): düğmeler ilk ekranda kalsın. */
+@media (max-width: 47.99rem) and (max-height: 40rem) {
+  .isaret { width: min(64vw, 24svh); }
+  .ust-etiket { margin-top: 0.75rem; }
+  .giris h1 { margin-top: 0.75rem; }
+  .giris .dugmeler { margin-top: 1.25rem; }
 }
 
 /* ---------- bölümler ---------- */
@@ -351,8 +414,8 @@ main:focus { outline: none; }
 .bolum h2 {
   font-family: var(--baslik);
   font-weight: 400;
-  font-size: clamp(2.75rem, 11vw, 5.75rem);
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 9vw, 4rem);
+  line-height: 1.12;
   letter-spacing: 0.005em;
   text-transform: uppercase;
   color: var(--acik);
@@ -383,11 +446,10 @@ main:focus { outline: none; }
   }
 }
 
-/* 01 · numaralı maddeler */
+/* 01 · maddeler (bölüm numarasıyla karışmasın diye numara yerine kısa çizgi) */
 .maddeler {
   margin-top: 2.75rem;
   list-style: none;
-  counter-reset: madde;
   border-bottom: 1px solid var(--cizgi-2);
 }
 .maddeler li {
@@ -395,50 +457,20 @@ main:focus { outline: none; }
   grid-template-columns: 3.25rem minmax(0, 1fr);
   padding-block: 1.625rem;
   border-top: 1px solid var(--cizgi-2);
-  counter-increment: madde;
 }
 .maddeler li::before {
-  content: counter(madde, decimal-leading-zero);
+  content: "";
   grid-row: span 2;
-  font-family: var(--baslik);
-  font-size: 1.375rem;
-  line-height: 1.2;
-  color: var(--amber);
+  width: 1.75rem;
+  height: 2px;
+  margin-top: 0.7rem;
+  background: var(--amber);
 }
 @media (min-width: 62rem) {
   .maddeler { margin-top: 0.5rem; }
 }
 
-/* 02 · Kalabalık yok */
-.bolum-bant {
-  background:
-    radial-gradient(60% 70% at 85% 0%, rgba(139, 104, 67, 0.16), transparent 70%),
-    linear-gradient(180deg, var(--yuzey) 0%, var(--zemin) 100%);
-}
-.bolum h2.dev {
-  font-size: clamp(4rem, 19.5vw, 11rem);
-  line-height: 0.96;
-  letter-spacing: 0;
-}
-.uclu {
-  display: grid;
-  gap: 2rem;
-  margin-top: 3rem;
-  list-style: none;
-}
-.uclu li::before {
-  content: "";
-  display: block;
-  width: 2.5rem;
-  height: 2px;
-  margin-bottom: 1.125rem;
-  background: var(--amber);
-}
-@media (min-width: 48rem) {
-  .uclu { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin-top: 4rem; }
-}
-
-/* 03 · İlerleme */
+/* 02 · İlerleme */
 .bolum-bas-genis .bolum-giris { max-width: 40ch; }
 .kartlar {
   display: grid;
@@ -487,26 +519,27 @@ main:focus { outline: none; }
   gap: 0.625rem;
   margin-top: 1.75rem;
   padding: 0.75rem 1.125rem;
-  border: 1px dashed var(--bronz);
+  border: 1px solid var(--cizgi-2);
   border-radius: 999px;
+  background: rgba(202, 159, 108, 0.06);
   color: var(--metin);
   font-size: 0.9375rem;
 }
 .rozet .ikon { color: var(--amber); }
 .rozet strong { color: var(--amber); font-weight: 600; }
 
-/* 04 · Konum */
+/* 03 · Konum */
 .konum-buyuk {
   margin-top: 1.75rem;
   font-family: var(--baslik);
   font-size: clamp(1.875rem, 7vw, 2.75rem);
-  line-height: 1.08;
+  line-height: 1.15;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--amber);
 }
 .konum-alt {
-  margin-top: 0.25rem;
+  margin-top: 0.625rem;
   font-size: 1.1875rem;
   font-weight: 600;
   color: var(--acik);
@@ -515,8 +548,8 @@ main:focus { outline: none; }
   margin-top: 1rem;
   font-style: normal;
   color: var(--metin);
+  text-wrap: pretty;
 }
-.konum-not { margin-top: 0.25rem; color: var(--soluk); }
 .konum-metin .dugmeler { margin-top: 2rem; }
 
 .harita { margin-top: 2.75rem; }
@@ -553,16 +586,19 @@ main:focus { outline: none; }
   stroke-linejoin: round;
 }
 .harita-baslik { font-weight: 600; color: var(--acik); }
-.harita-aciklama { color: var(--soluk); font-size: 0.9375rem; }
 .harita-yer .btn { margin-top: 0.75rem; }
-.harita iframe { display: block; background: var(--yuzey); }
+.harita iframe { display: block; height: auto; background: var(--yuzey); }
+@media (min-width: 48rem) and (max-width: 61.99rem) {
+  .harita-yer,
+  .harita iframe { aspect-ratio: 16 / 9; }
+}
 .harita-not {
   margin-top: 0.75rem;
   color: var(--soluk);
   font-size: 0.8125rem;
 }
 
-/* 05 · İletişim */
+/* 04 · İletişim */
 .bolum-son { padding-bottom: clamp(4rem, 10vw, 7rem); }
 .iletisim {
   display: grid;
@@ -575,6 +611,10 @@ main:focus { outline: none; }
     var(--yuzey);
 }
 .iletisim .btn-buyuk { width: 100%; margin-top: 2rem; }
+@media (max-width: 35.99rem) {
+  .iletisim { padding: 1.5rem 1.25rem; }
+  .iletisim .btn-buyuk { padding-inline: 1rem; font-size: 1rem; }
+}
 @media (min-width: 36rem) { .iletisim .btn-buyuk { width: auto; } }
 @media (min-width: 62rem) {
   .iletisim { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 4rem; align-items: end; }
@@ -675,7 +715,7 @@ main:focus { outline: none; }
   font-family: var(--baslik);
   font-weight: 400;
   font-size: clamp(2.5rem, 10vw, 4.25rem);
-  line-height: 1.02;
+  line-height: 1.12;
   text-transform: uppercase;
   color: var(--acik);
   text-wrap: balance;
