@@ -1,0 +1,3 @@
+# Cloudflare Pages yönlendirmeleri. www → apex 301 burada DEĞİL, Cloudflare'de
+# (DNS + Yönlendirme Kuralı) yapılır; ayrıntı: ayarlar.md.
+/kvkk.html  /kvkk  301

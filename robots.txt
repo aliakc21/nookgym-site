@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nookgym.com.tr/sitemap.xml
