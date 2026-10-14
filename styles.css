@@ -786,3 +786,165 @@ main:focus { outline: none; }
    (otomatik oynatma kapalı cihazlarda logonun hiç görünmemesini önler). */
 .isaret-video { display: none !important; }
 .isaret-logo { opacity: 1 !important; animation: none !important; }
+
+/* ---------- Kampanya (ayarlar.json → KAMPANYA; bitişte app.js gizler) ---------- */
+[data-kampanya-aktif][hidden],
+[data-kampanya-bitti][hidden] { display: none !important; }
+
+.kampanya-serit {
+  display: block;
+  border-bottom: 1px solid var(--cizgi-2);
+  background:
+    linear-gradient(90deg, rgba(202, 159, 108, 0.16), rgba(202, 159, 108, 0.04) 60%, transparent),
+    var(--yuzey);
+  color: var(--acik);
+  text-decoration: none;
+}
+.kampanya-serit:hover { background-color: var(--yuzey-2); }
+.kampanya-serit:focus-visible { outline: 2px solid var(--amber); outline-offset: -4px; }
+.kampanya-serit-ic {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem 0.75rem;
+  min-height: 3rem;
+  padding-block: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  text-align: center;
+}
+.kampanya-serit-etiket {
+  padding: 0.1875rem 0.5rem;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--zemin);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.kampanya-serit-ad { font-weight: 600; }
+.kampanya-serit-fiyat { color: var(--amber); font-weight: 700; white-space: nowrap; }
+.kampanya-serit-ok { width: 1rem; height: 1rem; color: var(--amber); }
+@media (max-width: 29.99rem) { .kampanya-serit-ok { display: none; } }
+
+.kampanya {
+  background:
+    radial-gradient(90% 70% at 85% 10%, rgba(202, 159, 108, 0.10), transparent 60%),
+    var(--zemin);
+}
+.kampanya-ic { display: grid; gap: 2.75rem; }
+@media (min-width: 62rem) {
+  .kampanya-ic { grid-template-columns: minmax(0, 1fr) 22rem; gap: 4.5rem; align-items: center; }
+}
+.kampanya h2 { max-width: 16ch; }
+.kampanya-fiyat {
+  margin-top: 1.75rem;
+  padding: 1.5rem 1.5rem 1.375rem;
+  border: 1px solid rgba(139, 104, 67, 0.75);
+  border-radius: 1rem;
+  background:
+    radial-gradient(120% 100% at 0% 0%, rgba(202, 159, 108, 0.13), transparent 60%),
+    var(--yuzey);
+}
+.kampanya-tutar {
+  font-family: var(--baslik);
+  font-size: clamp(3.25rem, 14vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  color: var(--amber);
+}
+.kampanya-fiyat-aciklama {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--acik);
+}
+.kampanya-pt-notu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--bronz);
+  border-radius: 999px;
+  background: rgba(202, 159, 108, 0.06);
+  color: var(--metin);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.kampanya-pt-notu .ikon { flex: none; width: 1.125rem; height: 1.125rem; color: var(--amber); }
+.kampanya-bilgi { margin-top: 1.75rem; border-top: 1px solid var(--cizgi-2); }
+.kampanya-bilgi > div {
+  display: grid;
+  gap: 0.25rem;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid var(--cizgi-2);
+}
+@media (min-width: 36rem) {
+  .kampanya-bilgi > div { grid-template-columns: 11rem minmax(0, 1fr); gap: 1rem; }
+}
+.kampanya-bilgi dt {
+  color: var(--soluk);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.kampanya-bilgi dd { color: var(--metin); }
+.kampanya-teklif .dugmeler,
+.kampanya-bitti .dugmeler { margin-top: 2rem; }
+
+.kampanya-video { margin: 0; justify-self: center; width: min(100%, 20rem); }
+@media (min-width: 62rem) { .kampanya-video { width: 22rem; } }
+.video-yer {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border: 1px solid var(--cizgi-2);
+  border-radius: 1rem;
+  background: var(--yuzey);
+}
+.video-yer img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.video-oynat {
+  position: absolute;
+  left: 50%;
+  bottom: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.375rem 0.75rem 1.125rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--zemin);
+  font: inherit;
+  font-weight: 700;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.45);
+}
+.video-oynat:hover { background: var(--acik); }
+.video-oynat:focus-visible { outline: 3px solid var(--acik); outline-offset: 3px; }
+.video-oynat svg { flex: none; width: 1.375rem; height: 1.375rem; fill: currentColor; }
+.video-oynat[hidden] { display: none; }
+.video-cerceve {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;
+  border: 1px solid var(--cizgi-2);
+  border-radius: 1rem;
+  background: #fff;
+}
+.kampanya-video figcaption {
+  display: grid;
+  gap: 0.375rem;
+  margin-top: 0.875rem;
+  color: var(--soluk);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+.kampanya-video figcaption a { color: var(--amber); font-weight: 600; font-size: 0.9375rem; }

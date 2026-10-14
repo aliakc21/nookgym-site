@@ -2,13 +2,13 @@
 <html lang="tr">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src https://www.google.com/maps https://www.google.com/maps/; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; media-src 'self'; manifest-src 'self'; connect-src 'self'; frame-src https://www.google.com/maps https://www.google.com/maps/ https://www.instagram.com/p/; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0D0C0A">
 <meta name="color-scheme" content="dark">
 <link rel="preload" href="/fonts/anton-tr.woff2?v=27bd98d1d6" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=2d10d3eb0c">
+<link rel="stylesheet" href="/styles.css?v=8efdd561b2">
 <link rel="icon" href="/assets/favicon.ico?v=61b2eaa9e1" sizes="48x48">
 <link rel="icon" href="/assets/favicon.svg?v=efe89bbaf9" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=21e5dc8f00">
@@ -64,10 +64,31 @@
   },
   "sameAs": [
     "https://www.instagram.com/nookgym_/"
-  ]
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "name": "Kadın Open Gym · 1 + 1 Ay",
+    "description": "Yalnız Open Gym üyeliği. Toplam 2 ay · KDV dahil. PT dersleri dahil değildir.",
+    "url": "https://nookgym.com.tr/#kampanya",
+    "price": "6750.00",
+    "priceCurrency": "TRY",
+    "priceSpecification": {
+      "@type": "PriceSpecification",
+      "price": "6750.00",
+      "priceCurrency": "TRY",
+      "valueAddedTaxIncluded": true
+    },
+    "eligibleDuration": {
+      "@type": "QuantitativeValue",
+      "value": 2,
+      "unitCode": "MON"
+    },
+    "validFrom": "2026-10-07T00:00:00+03:00",
+    "validThrough": "2026-11-07T23:59:59+03:00"
+  }
 }
 </script>
-<script src="/app.js?v=bacf03de9b" defer></script>
+<script src="/app.js?v=9b1fbd912b" defer></script>
 </head>
 <body>
 <a class="atla" href="#icerik">İçeriğe geçin</a>
@@ -79,6 +100,9 @@
     </a>
     <nav class="ust-nav" id="ust-nav" aria-label="Bölümler">
       <ul>
+
+        <li data-kampanya-aktif><a href="/#kampanya">Kampanya</a></li>
+
         <li><a href="/#pt">Birebir PT</a></li>
         <li><a href="/#ilerleme">İlerleme</a></li>
         <li><a href="/#konum">Konum</a></li>
@@ -94,6 +118,17 @@
 
 
 <main id="icerik" tabindex="-1">
+
+
+  <a class="kampanya-serit" href="#kampanya" data-kampanya-aktif>
+    <span class="kap kampanya-serit-ic">
+      <span class="kampanya-serit-etiket">Kampanya</span>
+      <span class="kampanya-serit-ad">Kadın Open Gym · 1 + 1 Ay</span>
+      <span class="kampanya-serit-fiyat">6.750 TL<span class="gizli"> · Toplam 2 ay · KDV dahil</span></span>
+      <svg class="ikon kampanya-serit-ok" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </span>
+  </a>
+
 
   <section class="giris" aria-labelledby="giris-baslik">
     <div class="kap giris-ic">
@@ -117,6 +152,66 @@
       </div>
     </div>
   </section>
+
+
+  <section id="kampanya" class="bolum kampanya" aria-labelledby="kampanya-baslik" data-bitis="2026-11-08T00:00:00+03:00">
+    <div class="kap kampanya-ic">
+      <div class="kampanya-metin">
+        <div class="kampanya-teklif" data-kampanya-aktif>
+          <p class="kunye"><span>Kampanya</span> 7&nbsp;Ekim–7&nbsp;Kasım&nbsp;2026</p>
+          <h2 id="kampanya-baslik">Kadın Open Gym · 1 + 1 Ay</h2>
+          <div class="kampanya-fiyat">
+            <p class="kampanya-tutar">6.750 TL</p>
+            <p class="kampanya-fiyat-aciklama">Toplam 2 ay · KDV dahil</p>
+            <p class="kampanya-pt-notu">
+              <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+              PT dersleri dahil değildir.
+            </p>
+          </div>
+          <dl class="kampanya-bilgi">
+            <div><dt>Kapsam</dt><dd>Yalnız Open Gym üyeliği</dd></div>
+            <div><dt>Kullanım</dt><dd>Salonun açık olduğu günlerde 09.00–20.00</dd></div>
+            <div><dt>Kampanya geçerliliği</dt><dd>7&nbsp;Ekim–7&nbsp;Kasım&nbsp;2026</dd></div>
+            <div><dt>Konum</dt><dd>Nokta Ankara · Gordion AVM karşısı · Ümitköy/Ankara</dd></div>
+          </dl>
+          <div class="dugmeler">
+            <a class="btn btn-ana" href="https://ig.me/m/nookgym_">Instagram'dan kampanya bilgisi al</a>
+            <a class="btn btn-ikincil" href="https://www.google.com/maps/dir/?api=1&amp;destination=39.901416%2C32.693052">
+              <svg class="ikon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.1-7-11.5a7 7 0 0 1 14 0C19 14.9 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+              Yol tarifi
+            </a>
+          </div>
+        </div>
+        <div class="kampanya-bitti" data-kampanya-bitti hidden>
+          <p class="kunye"><span>Kampanya</span> Sona erdi</p>
+          <h2 id="kampanya-bitti-baslik">Kampanya sona erdi</h2>
+          <p class="bolum-giris">Kadın Open Gym · 1 + 1 Ay kampanyası 7&nbsp;Kasım&nbsp;2026 tarihinde sona erdi. Üyelik seçenekleri hakkında bilgi için bize ulaşın.</p>
+          <div class="dugmeler">
+            <a class="btn btn-ana" href="https://ig.me/m/nookgym_">Bilgi alın<span class="gizli"> (Instagram mesajı)</span></a>
+            <a class="btn btn-ikincil" href="https://www.google.com/maps/dir/?api=1&amp;destination=39.901416%2C32.693052">Yol tarifi</a>
+          </div>
+        </div>
+      </div>
+      <figure class="kampanya-video" data-kampanya-aktif>
+        <div class="video-yer">
+          <picture>
+            <source type="image/webp" srcset="/assets/kampanya/kadin-open-gym-kapak-540.webp 540w, /assets/kampanya/kadin-open-gym-kapak-1080.webp 1080w" sizes="(min-width: 62rem) 22rem, (min-width: 48rem) 20rem, 78vw">
+            <img src="/assets/kampanya/kadin-open-gym-kapak-540.jpg" width="540" height="960" alt="Kadın Open Gym · 1 + 1 Ay kampanya videosunun kapağı" loading="lazy" decoding="async">
+          </picture>
+          <button class="video-oynat" type="button" data-instagram="https://www.instagram.com/p/DeMDaMSoQ3U/embed/" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5.5v13l11-6.5z"/></svg>
+            <span>Videoyu izleyin</span>
+          </button>
+        </div>
+        <figcaption>
+          <a href="https://www.instagram.com/reel/DeMDaMSoQ3U/">Instagram'da izle</a>
+          <span>Video Instagram tarafından sunulur; oynattığınızda tarayıcınız Instagram'a bağlanır.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+
 
   <section id="pt" class="bolum" aria-labelledby="pt-baslik">
     <div class="kap bolum-ic">
@@ -174,7 +269,7 @@
         <p class="kunye" aria-hidden="true"><span>03</span> Konum</p>
         <h2 id="konum-baslik">Konum</h2>
         <p class="konum-buyuk">Gordion AVM karşısı</p>
-        <p class="konum-alt">Nokta Ankara · alt kat</p>
+        <p class="konum-alt">Nokta Ankara</p>
         <address>Nokta Ankara, Ankaralılar&nbsp;Cad. No:1, Ümit&nbsp;Mah., 06810 Çankaya&nbsp;/&nbsp;Ankara</address>
         <div class="dugmeler">
           <a class="btn btn-ana" href="https://www.google.com/maps/dir/?api=1&amp;destination=39.901416%2C32.693052">
