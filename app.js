@@ -4,6 +4,7 @@
    2) Harita: "Haritayı açın"a basılana kadar Google'a hiç istek gitmez.
    3) Mobil/tablet menü: 62rem altında üst bilgideki menü düğmesi.
    4) Kampanya: bitiş anı (İstanbul saati, data-bitis) geçtiyse teklif gizlenir, "Kampanya sona erdi" görünür;
+      ilk ekran kartının kenar ışığı fare/odak gelince bir tur döner (yalnız sınıf; CSP uyumlu);
       Instagram videosu yalnız "Videoyu izleyin"e basılınca yüklenir (önce Instagram'a hiç istek gitmez, ses çalmaz). */
 (function () {
   'use strict';
@@ -138,6 +139,24 @@
         if (eskiBaslik) eskiBaslik.removeAttribute('id');
       }
     }
+  }
+
+  /* İlk ekran kartının kenar ışığı (styles.css "Işıklı tabela"): açılış turu bitince "dur"; fare ya da
+     klavye odağı gelince "tur" ile bir tur daha. Tur her zaman sonuna kadar döner (fare erken çıksa da
+     ışık sıçramaz); bitince "tur" kalkar. Hareket azaltma açıkken animasyon yok, bu sınıflar iş görmez. */
+  var kart = document.querySelector('.kampanya-kart');
+
+  if (kart) {
+    var turla = function () {
+      if (kart.classList.contains('dur') && !kart.classList.contains('tur')) kart.classList.add('tur');
+    };
+    kart.addEventListener('animationend', function (e) {
+      if (e.target !== kart || e.animationName !== 'kampanya-isik') return;
+      if (kart.classList.contains('tur')) kart.classList.remove('tur');
+      else kart.classList.add('dur');
+    });
+    kart.addEventListener('pointerenter', function (e) { if (e.pointerType !== 'touch') turla(); });
+    kart.addEventListener('focusin', turla);
   }
 
   var oynatDugme = document.querySelector('[data-instagram]');
