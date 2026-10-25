@@ -1209,12 +1209,13 @@ main:focus { outline: none; }
 }
 .kampanya-video figcaption a { color: var(--amber); font-weight: 600; font-size: 0.9375rem; }
 
-/* ---------- Halter imleci (imlec.js) ----------
+/* ---------- Dambıl imleci (imlec.js) ----------
    İçerik Güvenlik Politikası (style-src 'self') nedeniyle CSS'in tamamı burada; imlec.js yalnız sınıf ve
    el.style.transform atar. Öğeler yalnız fareli masaüstünde, hareket azaltma kapalıyken oluşturulur.
    Sistem imleci yalnız html.imlec-acik varken gizlenir; yazı alanlarında, metin seçerken (imlec-secim)
-   ve iframe'lerin içinde sistem imleci görünür. */
-.imlec-toz {
+   ve iframe'lerin içinde sistem imleci görünür. Hız çizgileri ve tıklama çatlağı .imlec-iz tuvalinde
+   (boyutu burada; imlec.js yalnız piksel tamponunu ekran yoğunluğuna göre ayarlar). */
+.imlec-iz {
   position: fixed;
   top: 0;
   left: 0;
@@ -1223,35 +1224,40 @@ main:focus { outline: none; }
   z-index: 2147483000;
   pointer-events: none;
 }
-/* Tıklama noktası = kutunun (8px, 0) noktası = SVG'deki açık amber uç (imlec.js). */
+/* Tıklama noktası = kutunun (9px, 0) noktası = SVG'deki amber uç (imlec.js). Koyu metal gövde,
+   arkadan sıcak amber ışık (ışıklı tabela): kenar konturu + yumuşak amber hale. */
 .imlec {
   position: fixed;
   left: 0;
   top: 0;
   z-index: 2147483001;
-  width: 16px;
-  height: 46px;
-  margin-left: -8px;
+  width: 18px;
+  height: 45px;
+  margin-left: -9px;
   pointer-events: none;
-  transform-origin: 8px 0;
+  transform-origin: 9px 0;
   transform: translate3d(-200px, -200px, 0) rotate(-32deg);
   opacity: 0;
-  transition: opacity 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.55));
+  transition: opacity 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.18s ease-out;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 3px rgba(202, 159, 108, 0.4));
   will-change: transform;
 }
 .imlec.acik { opacity: 1; }
 .imlec.metin,
 .imlec.cerceve,
 .imlec.secim { opacity: 0; }
-.imlec svg { display: block; width: 16px; height: 46px; max-width: none; overflow: visible; }
-.imlec .imlec-parlama,
+.imlec svg { display: block; width: 18px; height: 45px; max-width: none; overflow: visible; }
+.imlec .imlec-kenar { opacity: 0.75; transition: opacity 0.18s ease-out; }
+.imlec .imlec-isik { opacity: 0.75; transition: opacity 0.18s ease-out; }
+.imlec .imlec-parlama { opacity: 0.55; transition: opacity 0.18s ease-out; }
 .imlec .imlec-hale { opacity: 0; transition: opacity 0.18s ease-out; }
-.imlec.kaldir .imlec-parlama { opacity: 0.6; }
-.imlec.kaldir .imlec-hale { opacity: 0.45; }
 .imlec .imlec-uc { transition: fill 0.18s ease-out; }
-.imlec.kaldir .imlec-uc { fill: #FFFFFF; }
-.imlec.kaldir { filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 5px rgba(202, 159, 108, 0.55)); }
+.imlec.kaldir .imlec-kenar { opacity: 1; stroke: #E2B97F; }
+.imlec.kaldir .imlec-isik { opacity: 1; stroke: #F4DEB2; }
+.imlec.kaldir .imlec-parlama { opacity: 0.9; }
+.imlec.kaldir .imlec-hale { opacity: 0.38; }
+.imlec.kaldir .imlec-uc { fill: #F4DEB2; }
+.imlec.kaldir { filter: drop-shadow(0 7px 5px rgba(0, 0, 0, 0.55)) drop-shadow(0 0 6px rgba(202, 159, 108, 0.85)); }
 html.imlec-acik,
 html.imlec-acik * { cursor: none !important; }
 html.imlec-acik input,
@@ -1262,12 +1268,12 @@ html.imlec-acik.imlec-secim,
 html.imlec-acik.imlec-secim * { cursor: auto !important; }
 @media print {
   .imlec,
-  .imlec-toz { display: none !important; }
+  .imlec-iz { display: none !important; }
 }
-/* Yüksek kontrast (Windows) ya da "Kontrastı artır" (macOS): halter yok, sistem imleci (imlec.js de kapanır). */
+/* Yüksek kontrast (Windows) ya da "Kontrastı artır" (macOS): dambıl yok, sistem imleci (imlec.js de kapanır). */
 @media (forced-colors: active), (prefers-contrast: more) {
   .imlec,
-  .imlec-toz { display: none !important; }
+  .imlec-iz { display: none !important; }
   html.imlec-acik,
   html.imlec-acik * { cursor: auto !important; }
 }
