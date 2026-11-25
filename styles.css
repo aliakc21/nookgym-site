@@ -815,18 +815,7 @@ main:focus { outline: none; }
 .isaret-video { display: none !important; }
 .isaret-logo { opacity: 1 !important; animation: none !important; }
 
-/* ---------- Kampanya bölümü (#kampanya, data-bitis; bitiş anı geçince app.js teklifi gizler) ---------- */
-[data-kampanya-aktif][hidden],
-[data-kampanya-bitti][hidden] { display: none !important; }
 
-.kampanya {
-  background:
-    radial-gradient(90% 70% at 85% 10%, rgba(202, 159, 108, 0.10), transparent 60%),
-    var(--zemin);
-}
-.kampanya h2 { max-width: 16ch; }
-.kampanya-teklif .dugmeler,
-.kampanya-bitti .dugmeler { margin-top: 2rem; }
 
 /* ---------- Dambıl imleci (imlec.js) ----------
    İçerik Güvenlik Politikası (style-src 'self') nedeniyle CSS'in tamamı burada; imlec.js yalnız sınıf ve

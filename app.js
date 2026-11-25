@@ -2,8 +2,7 @@
    1) Açılış videosu: yalnız <html> .intro sınıfı taşıyorsa çalışır. Video şu an kapalı
       (index.html head notu); .intro eklenmediği için hiçbir şey indirilmez.
    2) Harita: "Haritayı açın"a basılana kadar Google'a hiç istek gitmez.
-   3) Mobil/tablet menü: 62rem altında üst bilgideki menü düğmesi.
-   4) Kampanya: bitiş anı (İstanbul saati, data-bitis) geçtiyse teklif gizlenir, "Kampanya sona erdi" görünür. */
+   3) Mobil/tablet menü: 62rem altında üst bilgideki menü düğmesi. */
 (function () {
   'use strict';
 
@@ -118,24 +117,4 @@
     });
   }
 
-  /* ---------- 4) Kampanya ---------- */
-  var kampanya = document.getElementById('kampanya');
-
-  if (kampanya && kampanya.hasAttribute('data-bitis')) {
-    var bitis = Date.parse(kampanya.getAttribute('data-bitis'));
-    if (!isNaN(bitis) && Date.now() >= bitis) {
-      Array.prototype.forEach.call(document.querySelectorAll('[data-kampanya-aktif]'), function (el) {
-        el.hidden = true;
-      });
-      Array.prototype.forEach.call(document.querySelectorAll('[data-kampanya-bitti]'), function (el) {
-        el.hidden = false;
-      });
-      var bittiBaslik = document.getElementById('kampanya-bitti-baslik');
-      if (bittiBaslik) {
-        bittiBaslik.id = 'kampanya-baslik';
-        var eskiBaslik = kampanya.querySelector('.kampanya-teklif h2');
-        if (eskiBaslik) eskiBaslik.removeAttribute('id');
-      }
-    }
-  }
 })();
