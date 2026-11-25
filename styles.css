@@ -527,6 +527,7 @@ main:focus { outline: none; }
 }
 .rozet .ikon { color: var(--amber); }
 .rozet strong { color: var(--amber); font-weight: 600; }
+.rozet a { color: var(--amber); font-weight: 600; }
 
 /* 03 · Konum */
 .konum-buyuk {
