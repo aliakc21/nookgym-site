@@ -551,6 +551,7 @@ main:focus { outline: none; }
   text-wrap: pretty;
 }
 .konum-metin .dugmeler { margin-top: 2rem; }
+.bolum-bas .dugmeler { margin-top: 1.75rem; }
 
 .harita { margin-top: 2.75rem; }
 @media (min-width: 62rem) { .harita { margin-top: 0.5rem; } }
@@ -656,6 +657,15 @@ main:focus { outline: none; }
 .saat { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.125rem; }
 .saat dt { color: var(--metin); }
 .saat dd { color: var(--acik); font-weight: 600; font-variant-numeric: tabular-nums; }
+.iletisim-kunye {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--cizgi-2);
+  font-size: 0.9375rem;
+  color: var(--soluk);
+  overflow-wrap: anywhere;
+}
+.iletisim-kunye p + p { margin-top: 0.5rem; }
 
 /* ---------- alt bilgi ---------- */
 
@@ -687,6 +697,8 @@ main:focus { outline: none; }
   text-decoration-color: var(--cizgi-2);
 }
 .alt-nav a:hover { color: var(--amber); text-decoration-color: var(--amber); }
+.alt-odeme { grid-column: 1 / -1; min-width: 0; }
+.alt-odeme-logo { display: block; width: 28.5rem; max-width: 100%; height: auto; }
 .alt-yasal { display: grid; gap: 0.25rem; font-size: 0.8125rem; }
 @media (min-width: 62rem) {
   .alt-ic { grid-template-columns: auto 1fr; align-items: center; column-gap: 3rem; }
@@ -695,6 +707,22 @@ main:focus { outline: none; }
 }
 
 /* ---------- metin sayfası (KVKK) ---------- */
+
+.inceleme-uyari {
+  padding: 0.75rem var(--kenar);
+  background: var(--amber);
+  color: var(--zemin);
+  text-align: center;
+  font-size: 0.9375rem;
+}
+.isletme-kunye { display: grid; gap: 0.25rem; margin-block: 1.5rem; }
+.isletme-kunye dt { margin-top: 1rem; color: var(--soluk); font-size: 0.875rem; }
+.isletme-kunye dt:first-child { margin-top: 0; }
+.isletme-kunye dd { min-width: 0; overflow-wrap: anywhere; }
+@media (min-width: 40rem) {
+  .isletme-kunye { grid-template-columns: minmax(10rem, 1fr) minmax(0, 2fr); gap: 1rem 2rem; }
+  .isletme-kunye dt { margin-top: 0; }
+}
 
 .metin {
   max-width: calc(46rem + 2 * var(--kenar));
